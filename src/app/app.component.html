@@ -1,0 +1,25 @@
+<div style="flex:1; text-align:center; background-color: #EEE; padding: 15px;">
+  <h2>
+      Ler Arquivos Json
+  </h2>  
+
+  <div style="background-color:#FFF ; border-radius: 30px;  padding: 10px; margin-bottom: 10px;">
+    <h4 style="margin: 5px;">Nome  do arquivo .txt que será gerado</h4>
+    <input style="height:40px; border-style: none; width: 80%; text-align: center;" type="text" [value]=nameTxt (change)="onChangeNovoArq($event)" placeholder="Digite o nome do arquivo á ser gerado"/>
+    <h3 *ngIf="nameTxt!=''">{{nameTxt}}.txt</h3>
+  </div>
+  <div style="background-color: #FFF; border-radius: 30px;  padding: 5px; margin-bottom: 10px;">
+    <h4 style="margin: 5px;">Selecione a pasta dos arquivos a serem lidos</h4>
+    <input type="file" (change)="onFolderSelected($event)" webkitdirectory multiple/>  
+  </div> 
+  
+  <div  style="height:550px; text-align:center; align-items: center; flex: 1; background-color: #FFF; border-radius: 30px;  padding: 5px; margin-bottom: 10px;">
+    <h4 style="margin: 5px;">Arquivos Lidos:</h4>        
+    <div id="fileArea" style=" height: 90%; overflow-y:auto;">
+      <div *ngFor="let item of nameFile" >
+        <h3 style="margin-bottom: 10px;">{{nameFile.indexOf(item)+1}} - {{item}}</h3>  
+        <hr style="width:90%">
+      </div>             
+    </div>
+  </div>  
+</div>
